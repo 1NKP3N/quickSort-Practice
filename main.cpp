@@ -1,11 +1,3 @@
-//
-//  main.cpp
-//  quickSort
-//
-//  Created by Jonathan Phelan on 6/8/17.
-//  Copyright © 2017 Jonathan Phelan. All rights reserved.
-//
-
 #include <iostream>
 #include <array>
 
@@ -26,9 +18,7 @@ int main(int argc, const char * argv[]) {
     
     printf("Sorted array: \n");
     printArray(arr, n);
-
-    
-
+ 
 }
 
 void quickSort(int arr[], int left, int right){
