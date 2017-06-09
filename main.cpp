@@ -8,31 +8,14 @@ using namespace std;
 
 void quickSort(int arr[], int left, int right);
 void printArray(int arr[], int size);
+void quickSortHelper();
 
 
 int main(int argc, const char * argv[]) {
 
     srand((unsigned)time(0));
+    quickSortHelper();
     
-    int size;
-    cout << "How big do you want the array? ";
-    cin >> size;
-    
-    int* arr = new int[size];
-    
-    for(int i = 0; i < size; i++){
-        arr[i] = (rand() % 100) + 1;
-    }
-    
-    cout << "Unsorted Array: ";
-    printArray(arr, size);
-    cout << endl << endl;
-    
-    quickSort(arr, 0, size - 1);
-    
-    cout << "Sorted Array: ";
-    printArray(arr, size);
-    cout << endl;
 
 }
 
@@ -71,5 +54,28 @@ void printArray(int array[], int size){
         }
     }
     cout << "]";
+}
+
+void quickSortHelper(){
+    
+    int size;
+    cout << "How big do you want the array? ";
+    cin >> size;
+    
+    int* arr = new int[size];
+    for(int i = 0; i < size; i++){
+        arr[i] = (rand() % 100) + 1;
+    }
+    
+    cout << "\nUnsorted Array: ";
+    printArray(arr, size);
+    cout << endl << endl;
+    
+    quickSort(arr, 0, size - 1);
+    
+    cout << "Sorted Array: ";
+    printArray(arr, size);
+    cout << endl;
+    
 }
 
