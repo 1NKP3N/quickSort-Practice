@@ -1,24 +1,39 @@
 #include <iostream>
 #include <array>
+#include <vector>
+#include <time.h>
+#include <stdlib.h>
 
 using namespace std;
 
 void quickSort(int arr[], int left, int right);
 void printArray(int arr[], int size);
 
+
 int main(int argc, const char * argv[]) {
+
+    srand((unsigned)time(0));
     
-    int arr[] = {23, 84, 34, 27, 3, 8, 19, 54, 62, 99, 12, 43, 22, 91, 1, 5, 33, 51, 88, 32, 30};
-    int n = sizeof(arr)/sizeof(arr[0]);
+    int size;
+    cout << "How big do you want the array? ";
+    cin >> size;
     
-    printf("Unsorted array: \n");
-    printArray(arr, n);
+    int* arr = new int[size];
     
-    quickSort(arr, 0, n - 1 );
+    for(int i = 0; i < size; i++){
+        arr[i] = (rand() % 100) + 1;
+    }
     
-    printf("Sorted array: \n");
-    printArray(arr, n);
- 
+    cout << "Unsorted Array: ";
+    printArray(arr, size);
+    cout << endl << endl;
+    
+    quickSort(arr, 0, size - 1);
+    
+    cout << "Sorted Array: ";
+    printArray(arr, size);
+    cout << endl;
+
 }
 
 void quickSort(int arr[], int left, int right){
@@ -46,10 +61,15 @@ void quickSort(int arr[], int left, int right){
     }
 }
 
-void printArray(int arr[], int size){
+void printArray(int array[], int size){
     int i;
-    for (i=0; i < size; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
+    cout << "[";
+    for (i=0; i < size; i++){
+        cout << array[i];
+        if(i != size - 1){
+            cout << ", ";
+        }
+    }
+    cout << "]";
 }
 
