@@ -1,6 +1,5 @@
 #include <iostream>
 #include <array>
-#include <vector>
 #include <time.h>
 #include <stdlib.h>
 
