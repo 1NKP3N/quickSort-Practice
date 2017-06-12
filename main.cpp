@@ -20,7 +20,7 @@ int main(int argc, const char * argv[]) {
 void quickSort(int arr[], int left, int right){
     int i = left, j = right;
     int pivot = arr[(left + right) / 2];
-    
+
     while(i <= j){
         while(arr[i] < pivot)
             i++;
@@ -55,25 +55,38 @@ void printArray(int array[], int size){
 }
 
 void quickSortHelper(){
-    
+
     int size;
     cout << "How big do you want the array? ";
     cin >> size;
-    
+
     int* arr = new int[size];
     for(int i = 0; i < size; i++){
         arr[i] = (rand() % 100) + 1;
     }
-    
-    cout << "\nUnsorted Array: ";
-    printArray(arr, size);
-    cout << endl << endl;
-    
-    quickSort(arr, 0, size - 1);
-    
-    cout << "Sorted Array: ";
-    printArray(arr, size);
-    cout << endl;
-    
+
+    if(size <= 20){
+
+        cout << "\nUnsorted Array: ";
+        printArray(arr, size);
+        cout << endl << endl;
+
+        quickSort(arr, 0, size - 1);
+
+        cout << "Sorted Array: ";
+        printArray(arr, size);
+        cout << endl;
+    } else {
+        clock_t start = clock();
+        quickSort(arr, 0, size - 1);
+        clock_t timeElapsed = clock() - start;
+
+        unsigned long msElapsed = timeElapsed;
+        cout << "Elapsed Time: " << msElapsed << endl;
+    }
+
+    delete[] arr;
+    cout << "Array arr deleted." << endl;
+
 }
 
